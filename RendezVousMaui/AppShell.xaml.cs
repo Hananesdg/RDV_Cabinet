@@ -1,11 +1,12 @@
-﻿namespace RendezVousMaui
+﻿namespace RendezVousMaui;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-            
-        }
+        InitializeComponent();
+
+        Routing.RegisterRoute("AddClientPage", typeof(RendezVousMaui.Views.AddClientPage));
+        Routing.RegisterRoute("EditClientPage", typeof(RendezVousMaui.Views.EditClientPage));
     }
 }

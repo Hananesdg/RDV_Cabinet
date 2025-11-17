@@ -1,0 +1,16 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build output
+bin/
+obj/
+
+# MAUI
+**/*.WebView2/
+**/EBWebView/
+
+# OS
+Thumbs.db
+.DS_Store

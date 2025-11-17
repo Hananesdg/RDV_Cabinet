@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RendezVousMaui.Views.AddClientPage"
+             Title="Ajouter un client"
+             BackgroundColor="#F2F2F2">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Entry Placeholder="Nom" Text="{Binding Nom}" />
+        <Entry Placeholder="Prénom" Text="{Binding Prenom}" />
+        <Entry Placeholder="Téléphone" Keyboard="Telephone" Text="{Binding Telephone}" />
+        <Entry Placeholder="Email" Keyboard="Email" Text="{Binding Email}" />
+
+        <Button Text="Enregistrer"
+                BackgroundColor="#34C759"
+                TextColor="White"
+                CornerRadius="10"
+                Command="{Binding SaveCommand}" />
+    </VerticalStackLayout>
+
+</ContentPage>
