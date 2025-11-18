@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RendezVousMaui.Views.AppointmentsPage"
+    Title="Rendez-vous"
+    BackgroundColor="#F2F2F2">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <!-- Bouton ajouter -->
+        <Button Text="➕ Nouveau rendez-vous"
+                BackgroundColor="#3E64FF"
+                TextColor="White"
+                CornerRadius="12"
+                Command="{Binding AddAppointmentCommand}" />
+
+        <!-- Sélecteur de date -->
+        <DatePicker Date="{Binding SelectedDate}" />
+
+        <!-- Liste des rendez-vous -->
+        <CollectionView ItemsSource="{Binding Appointments}" 
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelect">
+
+            <CollectionView.EmptyView>
+                <Label Text="Aucun rendez-vous pour cette date."
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       TextColor="Gray"
+                       FontSize="16"/>
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <Border Stroke="#DDD"
+                            BackgroundColor="White"
+                            StrokeThickness="1"
+                            Margin="0,5"
+                            Padding="15"
+                            StrokeShape="RoundRectangle 10">
+
+                        <Grid ColumnDefinitions="*,Auto"
+                              RowDefinitions="Auto,Auto">
+
+                            <!-- Motif -->
+                            <Label Text="{Binding Motif}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   Grid.Row="0" Grid.Column="0"/>
+
+                            <!-- Heure -->
+                            <Label Text="{Binding HeureDebut}"
+                                   TextColor="#3E64FF"
+                                   FontSize="16"
+                                   Grid.Row="1"
+                                   Grid.Column="0" />
+
+                            <!-- Client -->
+                            <Label Text="{Binding ClientName}"
+                                   TextColor="Gray"
+                                   FontSize="14"
+                                   Grid.Row="1" 
+                                   Grid.Column="1"
+                                   Margin="10,0,0,0" />
+                        </Grid>
+
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RendezVousMaui.Views.EditAppointmentPage"
+             Title="Modifier RDV"
+             BackgroundColor="#F2F2F2">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Entry Text="{Binding ClientName}" IsEnabled="False" />
+
+        <DatePicker Date="{Binding Appointment.Date}" />
+
+        <TimePicker Time="{Binding Appointment.HeureDebut}" />
+        <TimePicker Time="{Binding Appointment.HeureFin}" />
+
+        <Entry Text="{Binding Appointment.Motif}" />
+
+        <Button Text="Enregistrer"
+                BackgroundColor="#34C759"
+                TextColor="White"
+                CornerRadius="10"
+                Command="{Binding UpdateCommand}" />
+
+        <Button Text="Supprimer"
+                BackgroundColor="#FF3B30"
+                TextColor="White"
+                CornerRadius="10"
+                Command="{Binding DeleteCommand}" />
+
+    </VerticalStackLayout>
+</ContentPage>

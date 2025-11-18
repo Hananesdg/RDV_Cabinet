@@ -10,17 +10,14 @@ public partial class App : Application
     {
         InitializeComponent();
         _db = db;
-        InitDatabase();
     }
 
-    private async void InitDatabase()
-    {
-        await _db.InitAsync();
-    }
-
-    // MAUI .NET 9 → CreateWindow obligatoire
+    // MAUI .NET 9 → CreateWindow = point d’entrée réel
     protected override Window CreateWindow(IActivationState? activationState)
     {
+        // Initialiser la base AVANT d’afficher l’UI
+        Task.Run(async () => await _db.InitAsync()).Wait();
+
         return new Window(new AppShell());
     }
 }

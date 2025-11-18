@@ -5,6 +5,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:RendezVousMaui.Views">
 
-    <ShellContent Title="Clients"
-                  ContentTemplate="{DataTemplate views:ClientsPage}" />
+    <TabBar>
+
+        <!-- Onglet Clients -->
+        <ShellContent
+            Title="Clients"
+            ContentTemplate="{DataTemplate views:ClientsPage}" />
+
+        <!-- Onglet Rendez-vous -->
+        <ShellContent
+            Title="Rendez-vous"
+            ContentTemplate="{DataTemplate views:AppointmentsPage}" />
+
+        <!-- Onglet Agenda / Créneaux -->
+        <ShellContent
+            Title="Agenda"
+            ContentTemplate="{DataTemplate views:AgendaPage}" />
+
+    </TabBar>
+
 </Shell>

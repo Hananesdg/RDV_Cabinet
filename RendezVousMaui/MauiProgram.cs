@@ -25,6 +25,18 @@ public static class MauiProgram
         builder.Services.AddTransient<AddClientViewModel>();
         builder.Services.AddTransient<EditClientViewModel>();
 
+        builder.Services.AddSingleton<AppointmentsPage>();
+        builder.Services.AddSingleton<AppointmentsViewModel>();
+
+        builder.Services.AddTransient<AddAppointmentPage>();
+        builder.Services.AddTransient<AddAppointmentViewModel>();
+
+        builder.Services.AddTransient<EditAppointmentPage>();
+        builder.Services.AddTransient<EditAppointmentViewModel>();
+
+        builder.Services.AddSingleton<AgendaPage>();
+        builder.Services.AddSingleton<AgendaViewModel>();
+
 
         return builder.Build();
     }
