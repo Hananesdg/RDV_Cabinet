@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RendezVousMaui.Views.DashboardPage"
+    Title="Tableau de bord"
+    BackgroundColor="#F5F7FA">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- ====== TITRE ====== -->
+            <Label Text="Tableau de bord"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="#333" />
+
+            <!-- ====== CARDS ====== -->
+            <Grid ColumnDefinitions="*,*"
+                  RowDefinitions="Auto,Auto"
+                  ColumnSpacing="15"
+                  RowSpacing="15">
+
+                <!-- RDV aujourd'hui -->
+                <Border BackgroundColor="White"
+                       StrokeShape="RoundRectangle 15"
+                       Padding="15"
+                       StrokeThickness="0"
+                       Margin="0"
+                       Grid.Column="0" Grid.Row="0">
+                    <VerticalStackLayout>
+                        <Label Text="RDV aujourd’hui"
+                               FontSize="16" 
+                               TextColor="#666"/>
+                        <Label Text="{Binding RdvToday}"
+                               FontSize="32"
+                               TextColor="#3E64FF"
+                               FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Clients total -->
+                <Border BackgroundColor="White"
+                       StrokeShape="RoundRectangle 15"
+                       Padding="15"
+                       StrokeThickness="0"
+                       Margin="0"
+                       Grid.Column="1" Grid.Row="0">
+                    <VerticalStackLayout>
+                        <Label Text="Clients total"
+                               FontSize="16" 
+                               TextColor="#666"/>
+                        <Label Text="{Binding TotalClients}"
+                               FontSize="32"
+                               TextColor="#3E64FF"
+                               FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- RDV cette semaine -->
+                <Border BackgroundColor="White"
+                       StrokeShape="RoundRectangle 15"
+                       Padding="15"
+                       StrokeThickness="0"
+                       Margin="0"
+                       Grid.Column="0" Grid.Row="1">
+                    <VerticalStackLayout>
+                        <Label Text="RDV semaine"
+                               FontSize="16" 
+                               TextColor="#666"/>
+                        <Label Text="{Binding RdvWeek}"
+                               FontSize="32"
+                               TextColor="#3E64FF"
+                               FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- RDV à venir -->
+                <Border BackgroundColor="White"
+                       StrokeShape="RoundRectangle 15"
+                       Padding="15"
+                       StrokeThickness="0"
+                       Margin="0"
+                       Grid.Column="1" Grid.Row="1">
+                    <VerticalStackLayout>
+                        <Label Text="RDV à venir"
+                               FontSize="16" 
+                               TextColor="#666"/>
+                        <Label Text="{Binding UpcomingRdv}"
+                               FontSize="32"
+                               TextColor="#3E64FF"
+                               FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </Grid>
+
+            <!-- ====== MINI GRAPHIQUE ====== -->
+            <Border BackgroundColor="White"
+                   StrokeShape="RoundRectangle 15"
+                   Padding="15"
+                   StrokeThickness="0"
+                   Margin="0">
+                <VerticalStackLayout>
+                    <Label Text="RDV par jour (7 jours)"
+                           FontSize="18"
+                           HorizontalOptions="Center"
+                           TextColor="#333"
+                           Margin="0,0,0,10"/>
+                    <Grid x:Name="ChartGrid"
+                          HeightRequest="200"
+                          BackgroundColor="#F5F7FA"/>
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

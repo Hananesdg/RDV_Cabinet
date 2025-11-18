@@ -9,10 +9,10 @@ public partial class AddClientViewModel : ObservableObject
 {
     private readonly DatabaseService _db;
 
-    [ObservableProperty] private string nom;
-    [ObservableProperty] private string prenom;
-    [ObservableProperty] private string telephone;
-    [ObservableProperty] private string email;
+    [ObservableProperty] private string nom = string.Empty;
+    [ObservableProperty] private string prenom = string.Empty;
+    [ObservableProperty] private string telephone = string.Empty;
+    [ObservableProperty] private string email = string.Empty;
 
     public AddClientViewModel(DatabaseService db)
     {

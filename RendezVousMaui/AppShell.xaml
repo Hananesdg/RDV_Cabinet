@@ -22,6 +22,11 @@
             Title="Agenda"
             ContentTemplate="{DataTemplate views:AgendaPage}" />
 
+
+        <ShellContent
+            Title="Dashboard"
+            ContentTemplate="{DataTemplate views:DashboardPage}" />
+
     </TabBar>
 
 </Shell>

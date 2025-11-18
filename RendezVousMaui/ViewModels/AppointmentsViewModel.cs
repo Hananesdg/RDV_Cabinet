@@ -62,6 +62,12 @@ public partial class AppointmentsViewModel : ObservableObject
     [RelayCommand]
     private async Task SelectAppointment(AppointmentView view)
     {
+        if (view?.OriginalAppointment == null)
+        {
+            // Vous pouvez afficher un message d'erreur ou simplement retourner
+            return;
+        }
+
         var param = new Dictionary<string, object>
         {
             { "Appointment", view.OriginalAppointment }
@@ -80,5 +86,5 @@ public class AppointmentView
     public string Motif { get; set; } = "";
     public string ClientName { get; set; } = "";
 
-    public Appointment OriginalAppointment { get; set; }
+    public Appointment? OriginalAppointment { get; set; }
 }

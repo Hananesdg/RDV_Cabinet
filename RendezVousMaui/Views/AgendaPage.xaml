@@ -8,20 +8,48 @@
 
     <VerticalStackLayout Padding="20" Spacing="15">
 
-        <DatePicker Date="{Binding SelectedDate}" />
+        <!-- Bouton de bascule -->
+        <Button Text="{Binding ModeButtonText}"
+                Command="{Binding SwitchModeCommand}"
+                BackgroundColor="#3E64FF"
+                TextColor="White"
+                CornerRadius="12" />
 
-        <CollectionView ItemsSource="{Binding Slots}">
+        <!-- Sélecteur de date (visible uniquement en mode JOUR) -->
+        <DatePicker Date="{Binding SelectedDate}" 
+                    IsVisible="{Binding IsDayMode}" />
+
+        <!-- Vue JOUR -->
+        <CollectionView ItemsSource="{Binding DaySlots}"
+                        IsVisible="{Binding IsDayMode}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Border Stroke="#CCC" Padding="10" Margin="0,5" BackgroundColor="White">
-                        <VerticalStackLayout>
-                            <Label Text="{Binding Heure}" FontSize="18" />
-                            <Label Text="{Binding Statut}" TextColor="Gray"/>
-                        </VerticalStackLayout>
+                    <Border Stroke="#CCC" BackgroundColor="White"
+                            Padding="10" Margin="0,5">
+
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="{Binding Heure}" FontSize="18"/>
+                            <Label Text="{Binding Statut}" 
+                                   TextColor="Gray"
+                                   Grid.Column="1"/>
+                        </Grid>
+
                     </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
+        <!-- Vue SEMAINE -->
+        <ScrollView IsVisible="{Binding IsWeekMode}">
+            <Grid x:Name="WeekGrid"
+                  RowSpacing="1"
+                  ColumnSpacing="1"
+                  BackgroundColor="#DDD"
+                  Padding="1"
+                  HeightRequest="650">
+            </Grid>
+        </ScrollView>
+
     </VerticalStackLayout>
+
 </ContentPage>

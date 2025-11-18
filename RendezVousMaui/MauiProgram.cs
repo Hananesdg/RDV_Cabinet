@@ -1,6 +1,8 @@
 ﻿using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
+using Plugin.LocalNotification;
 using RendezVousMaui.Database;
+using RendezVousMaui.Services;
 using RendezVousMaui.ViewModels;
 using RendezVousMaui.Views;
 
@@ -13,7 +15,8 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
 
         builder
-            .UseMauiApp<App>();
+            .UseMauiApp<App>()
+            .UseLocalNotification();
 
         // SERVICES
         builder.Services.AddSingleton<DatabaseService>();
@@ -37,7 +40,15 @@ public static class MauiProgram
         builder.Services.AddSingleton<AgendaPage>();
         builder.Services.AddSingleton<AgendaViewModel>();
 
+        builder.Services.AddSingleton<DashboardPage>();
+        builder.Services.AddSingleton<DashboardViewModel>();
+
+        builder.Services.AddSingleton<NotificationService>();
+
+
 
         return builder.Build();
     }
+
+  
 }

@@ -24,6 +24,7 @@ public partial class AddAppointmentViewModel : ObservableObject
     public AddAppointmentViewModel(DatabaseService db)
     {
         _db = db;
+
         LoadClients();
     }
 
